@@ -3,184 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Big Event</title>
+    <title>de Jong tot de Oud</title>
     <style>
         /* This is CSS. It styles your website to look beautiful! */
         /* 1. IMPORT PREMIUM FONTS FROM GOOGLE */
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
     /* 2. DESIGN VARIABLES (Midnight Elegance Palette) */
     /* If you prefer Botanical, change these to sage/olive greens! */
-    :root {
-        --bg-color: #f4f6f4;        /* Soft, airy off-white with a touch of sage */
-        --card-bg: #ffffff;         /* Crisp white for the content card */
-        --primary-color: #2c3e2b;    /* Deep Forest Green */
-        --accent-color: #b08d57;     /* Elegant Muted Bronze */
-        --text-main: #2d312e;        /* Dark olive-charcoal (much softer than black) */
-        --text-muted: #606c5a;       /* Soft Sage for secondary text */
-        --font-heading: 'Playfair Display', serif;
-        --font-body: 'Plus Jakarta Sans', sans-serif;
-    }
+        :root {
+            /* NEW COLOR PALETTE */
+            --bg-color: #e2ede4;        /* Lighter, beautiful sage green background */
+            --card-bg: #ffffff;         /* Clean white content card */
+            --header-bg: #6b8e73;       /* Fresh, mid-tone light botanical green header */
+            --accent-color: #e5a93b;     /* Bright, metallic striking bronze */
+            --text-main: #252b26;        /* Deep organic charcoal */
+            --text-muted: #556358;       /* Muted green-gray for secondary text */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
 
-    /* 3. GLOBAL STYLES */
-    body {
-        font-family: var(--font-body);
-        background-color: var(--bg-color);
-        color: var(--text-main);
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        line-height: 1.6;
-    }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.6;
+        }
 
-    /* 4. HERO/HEADER SECTION */
-    header {
-        background: linear-gradient(135deg, var(--primary-color) 0%, #0f172a 100%);
-        color: white;
-        width: 100%;
-        text-align: center;
-        padding: 5rem 0 6rem 0;
-        position: relative;
-    }
+        header {
+            background: linear-gradient(135deg, var(--header-bg) 0%, #4a6650 100%);
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 5rem 0 6rem 0;
+            position: relative;
+        }
 
-    header h1 {
-        font-family: var(--font-heading);
-        font-size: 3rem;
-        margin: 0 0 1rem 0;
-        letter-spacing: 1px;
-        font-weight: 700;
-        padding: 0 1rem;
-    }
+        header h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            margin: 0 0 1rem 0;
+            letter-spacing: 1px;
+            font-weight: 700;
+            padding: 0 1rem;
+        }
 
-    header p {
-        font-size: 1.2rem;
-        color: var(--accent-color);
-        margin: 0;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 500;
-    }
+        header p {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600; /* Made slightly bolder to pop */
+        }
 
-    /* Decorative curve under header */
-    header::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 24px;
-        background-color: var(--bg-color);
-        clip-path: ellipse(60% 100% at 50% 100%);
-    }
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 24px;
+            background-color: var(--bg-color);
+            clip-path: ellipse(60% 100% at 50% 100%);
+        }
 
-    /* 5. MAIN CONTENT CARD */
-    .container {
-        max-width: 750px;
-        width: 90%;
-        background: var(--card-bg);
-        margin: -3rem 0 4rem 0; /* Pulls the card up over the header slightly */
-        padding: 3rem;
-        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); /* Soft, modern shadow */
-        border-radius: 16px;
-        position: relative;
-        z-index: 10;
-        box-sizing: border-box;
-    }
+        .container {
+            max-width: 750px;
+            width: 90%;
+            background: var(--card-bg);
+            margin: -3rem 0 4rem 0;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(44, 62, 43, 0.12);
+            border-radius: 16px;
+            position: relative;
+            z-index: 10;
+            box-sizing: border-box;
+        }
 
-    /* 6. EVENT DETAILS SECTION */
-    .event-details {
-        margin-bottom: 3rem;
-        text-align: center;
-    }
+        .event-details {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
 
-    .event-details h2 {
-        font-family: var(--font-heading);
-        font-size: 2.2rem;
-        color: var(--primary-color);
-        margin-top: 0;
-        margin-bottom: 2rem;
-    }
+        .event-details h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: var(--header-bg);
+            margin-top: 0;
+            margin-bottom: 2rem;
+        }
 
-    /* Beautiful grid layout for event details */
-    .details-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-    }
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
 
-    .detail-card {
-        background: #f1f5f9;
-        padding: 1.5rem;
-        border-radius: 12px;
-        border-top: 4px solid var(--accent-color);
-        transition: transform 0.2s ease;
-    }
+        .detail-card {
+            background: #f3f7f4; /* Subtle matching tint */
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-top: 4px solid var(--accent-color);
+            transition: transform 0.2s ease;
+        }
 
-    .detail-card:hover {
-        transform: translateY(-5px); /* Subtle lift on hover */
-    }
+        .detail-card:hover {
+            transform: translateY(-5px);
+        }
 
-    .detail-card strong {
-        display: block;
-        color: var(--primary-color);
-        text-transform: uppercase;
-        font-size: 0.85rem;
-        letter-spacing: 1px;
-        margin-bottom: 0.5rem;
-    }
+        .detail-card strong {
+            display: block;
+            color: var(--header-bg);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
 
-    .detail-card span {
-        font-size: 1.05rem;
-        font-weight: 600;
-    }
+        .detail-card span {
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
 
-    .intro-text {
-        color: var(--text-muted);
-        font-size: 1.1rem;
-        max-width: 550px;
-        margin: 2rem auto 0 auto;
-    }
+        .intro-text {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 550px;
+            margin: 2rem auto 0 auto;
+        }
 
-    /* 7. RSVP FORM SECTION */
-    .form-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-top: 1px solid #e2e8f0;
-        padding-top: 3rem;
-    }
+        /* NEW STYLE FOR YOUR EVENT IMAGE */
+        .event-image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 2.5rem 0;
+            border-top: 1px solid #e2ede4;
+            border-bottom: 1px solid #e2ede4;
+            padding: 2rem 0;
+        }
 
-    .form-container h2 {
-        font-family: var(--font-heading);
-        font-size: 2.2rem;
-        color: var(--primary-color);
-        margin-top: 0;
-        margin-bottom: 1.5rem;
-    }
+        .event-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
 
-    iframe {
-        border: none;
-        width: 100%;
-        max-width: 640px;
-        height: 750px;
-        border-radius: 12px;
-    }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 1rem;
+        }
 
-    /* 8. RESPONSIVE DESIGN (For mobile screens) */
-    @media (max-width: 600px) {
-        header { padding: 4rem 0 5rem 0; }
-        header h1 { font-size: 2.2rem; }
-        .container { padding: 1.5rem; margin-top: -2rem; }
-        .event-details h2, .form-container h2 { font-size: 1.8rem; }
-    }
+        .form-container h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: var(--header-bg);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            max-width: 640px;
+            height: 750px;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 4rem 0 5rem 0; }
+            header h1 { font-size: 2.2rem; }
+            .container { padding: 1.5rem; margin-top: -2rem; }
+            .event-details h2, .form-container h2 { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
     <header>
         <h1>🎉 You're Invited to the Celebration! 🎉</h1>
         <p>Join us for an unforgettable evening</p>
@@ -192,10 +201,10 @@
         <!-- Event Details Section -->
         <div class="event-details">
             <h2>Event Details</h2>
-            <p class="detail-item"><strong>📅 Date:</strong> Saturday, October 17, 2026</p>
-            <p class="detail-item"><strong>⏰ Time:</strong> 6:00 PM - 11:00 PM</p>
-            <p class="detail-item"><strong>📍 Location:</strong> The Grand Sunflower Hall, Downtown</p>
-            <p class="detail-item"><strong>✨ Dress Code:</strong> Smart Casual</p>
+            <p class="detail-item"><strong> </strong> 17 December 2026</p>
+            <p class="detail-item"><strong> </strong> 13.00 en fok off teen 00.00/p>
+            <p class="detail-item"><strong> </strong> Landtscap, Stellenbosch</p>
+            <p class="detail-item"><strong> </strong> Trek kak fancy aan</p>
             <p>Please let us know if you can make it by filling out the RSVP form below. We can't wait to celebrate with you!</p>
         </div>
 
