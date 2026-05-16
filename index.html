@@ -3,222 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>de Jong tot de Oud</title>
+    <title>Finally Fosters | Celebration</title>
     <style>
-        /* This is CSS. It styles your website to look beautiful! */
-        /* 1. IMPORT PREMIUM FONTS FROM GOOGLE */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@200;300;400;500&display=swap');
 
-    /* 2. DESIGN VARIABLES (Midnight Elegance Palette) */
-    /* If you prefer Botanical, change these to sage/olive greens! */
         :root {
-            /* NEW COLOR PALETTE */
-            --bg-color: #e2ede4;        /* Lighter, beautiful sage green background */
-            --card-bg: #ffffff;         /* Clean white content card */
-            --header-bg: #6b8e73;       /* Fresh, mid-tone light botanical green header */
-            --accent-color: #e5a93b;     /* Bright, metallic striking bronze */
-            --text-main: #252b26;        /* Deep organic charcoal */
-            --text-muted: #556358;       /* Muted green-gray for secondary text */
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --bg-color: #f7f9f6;         /* Ultra-clean editorial off-white */
+            --primary-text: #212522;     /* Deep charcoal typography */
+            --muted-text: #667068;       /* Classy muted olive-grey */
+            --accent-bronze: #bfa17a;    /* Bright luxury bronze */
+            --font-display: 'Cinzel', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: var(--font-body);
+            font-family: var(--font-sans);
             background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
+            color: var(--primary-text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* THE SPLIT SCREEN LAYOUT */
+        .split-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            line-height: 1.6;
+            width: 100vw;
+            min-height: 100vh;
         }
 
-        header {
-            background: linear-gradient(135deg, var(--header-bg) 0%, #4a6650 100%);
-            color: white;
-            width: 100%;
-            text-align: center;
-            padding: 5rem 0 6rem 0;
-            position: relative;
-        }
-
-        header h1 {
-            font-family: var(--font-heading);
-            font-size: 3rem;
-            margin: 0 0 1rem 0;
-            letter-spacing: 1px;
-            font-weight: 700;
-            padding: 0 1rem;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600; /* Made slightly bolder to pop */
-        }
-
-        header::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
+        /* LEFT SIDE: FIXED PREMIUM IMAGE */
+        .image-side {
+            width: 45%;
+            position: fixed;
+            top: 0;
             left: 0;
+            height: 100vh;
+            background-color: #e2ede4; /* Fallback if image fails */
+        }
+
+        .image-side img {
             width: 100%;
-            height: 24px;
-            background-color: var(--bg-color);
-            clip-path: ellipse(60% 100% at 50% 100%);
+            height: 100%;
+            object-fit: cover; /* Crops image cleanly to fill the space like Wix */
+            object-position: center;
         }
 
-        .container {
-            max-width: 750px;
-            width: 90%;
-            background: var(--card-bg);
-            margin: -3rem 0 4rem 0;
-            padding: 3rem;
-            box-shadow: 0 20px 40px rgba(44, 62, 43, 0.12);
-            border-radius: 16px;
-            position: relative;
-            z-index: 10;
-            box-sizing: border-box;
-        }
-
-        .event-details {
-            margin-bottom: 2.5rem;
-            text-align: center;
-        }
-
-        .event-details h2 {
-            font-family: var(--font-heading);
-            font-size: 2.2rem;
-            color: var(--header-bg);
-            margin-top: 0;
-            margin-bottom: 2rem;
-        }
-
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .detail-card {
-            background: #f3f7f4; /* Subtle matching tint */
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-top: 4px solid var(--accent-color);
-            transition: transform 0.2s ease;
-        }
-
-        .detail-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .detail-card strong {
-            display: block;
-            color: var(--header-bg);
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .detail-card span {
-            font-size: 1.05rem;
-            font-weight: 600;
-        }
-
-        .intro-text {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 550px;
-            margin: 2rem auto 0 auto;
-        }
-
-        /* NEW STYLE FOR YOUR EVENT IMAGE */
-        .event-image-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            margin: 2.5rem 0;
-            border-top: 1px solid #e2ede4;
-            border-bottom: 1px solid #e2ede4;
-            padding: 2rem 0;
-        }
-
-        .event-image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-
-        .form-container {
+        /* RIGHT SIDE: SCROLLING CONTENT */
+        .content-side {
+            width: 55%;
+            margin-left: 45%; /* Pushes content right so it doesn't hide behind image */
+            padding: 5rem 10% 5rem 8%;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding-top: 1rem;
+            align-items: flex-start;
         }
 
-        .form-container h2 {
-            font-family: var(--font-heading);
-            font-size: 2.2rem;
-            color: var(--header-bg);
-            margin-top: 0;
-            margin-bottom: 1.5rem;
+        /* TYPOGRAPHY & SECTIONS */
+        .brand-header {
+            margin-bottom: 5rem;
+        }
+
+        .brand-header h1 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            line-height: 1.3;
+            color: var(--primary-text);
+        }
+
+        .brand-header p {
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--accent-bronze);
+            margin-top: 1rem;
+            font-weight: 400;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            color: var(--primary-text);
+            border-bottom: 1px solid var(--accent-bronze);
+            padding-bottom: 0.5rem;
+            width: 100%;
+        }
+
+        .details-block {
+            margin-bottom: 4rem;
+            width: 100%;
+        }
+
+        .detail-row {
+            margin-bottom: 1.8rem;
+            font-size: 1.05rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-row strong {
+            font-family: var(--font-display);
+            display: inline-block;
+            width: 120px;
+            color: var(--accent-bronze);
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .rsvp-container {
+            width: 100%;
+            margin-top: 2rem;
         }
 
         iframe {
             border: none;
             width: 100%;
-            max-width: 640px;
             height: 750px;
-            border-radius: 12px;
+            margin-top: 1rem;
         }
 
-        @media (max-width: 600px) {
-            header { padding: 4rem 0 5rem 0; }
-            header h1 { font-size: 2.2rem; }
-            .container { padding: 1.5rem; margin-top: -2rem; }
-            .event-details h2, .form-container h2 { font-size: 1.8rem; }
+        /* MOBILE RESPONSIVE (Stacks image on top, text on bottom like a phone app) */
+        @media (max-width: 960px) {
+            .split-container {
+                flex-direction: column;
+            }
+            .image-side {
+                width: 100%;
+                height: 45vh;
+                position: relative;
+            }
+            .content-side {
+                width: 100%;
+                margin-left: 0;
+                padding: 3rem 2rem;
+            }
+            .brand-header {
+                margin-bottom: 3rem;
+            }
+            .brand-header h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1> Come watch us be obnoxiously happy</h1>
-        <p> Ons is net te oulik</p>
-    </header>
-
-    <!-- Main Content Container -->
-    <div class="container">
+    <div class="split-container">
         
-        <!-- Event Details Section -->
-        <div class="event-details">
-            <h2>Event Details</h2>
-            <p class="detail-item"><strong> </strong> 17 December 2026</p>
-            <p class="detail-item"><strong> </strong> 13.00 en fok off teen 00.00</p>
-            <p class="detail-item"><strong> </strong> Landtscap, Stellenbosch</p>
-            <p class="detail-item"><strong> </strong> Trek kak fancy aan</p>
-            <p>Please let us know if you can make it by filling out the RSVP form below. We can't wait to celebrate with you!</p>
+        <!-- LEFT SIDE: PHOTO -->
+        <div class="image-side">
+            <!-- ⚠️ CHANGE 'event-photo.jpg' TO YOUR EXACT FILENAME SENSITIVE TO CAPITAL LETTERS -->
+            <img src="background.jpeg" alt="Celebration Image">
         </div>
 
-        <div class="event-image-container">
-            <img src="background.jpg" alt="Event Illustration">
-        </div>
-
-        <!-- RSVP Form Section -->
-        <div class="form-container">
-            <h2>RSVP Here</h2>
+        <!-- RIGHT SIDE: INFORMATION & RSVP -->
+        <div class="content-side">
             
-            <!-- PASTE YOUR GOOGLE FORM IFRAME CODE DIRECTLY BELOW THIS LINE -->
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHNmDCBdF4n0brLFRBtxbuAj5vk9_trVc_B_z1MiqTYSEcIQ/viewform?embedded=true" width="640" height="1009" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-            <!-- PASTE YOUR GOOGLE FORM IFRAME CODE DIRECTLY ABOVE THIS LINE -->
+            <!-- Main Title Title -->
+            <header class="brand-header">
+                <h1>de Jong tot <br>de Oud</h1>
+                <p>The Celebration</p>
+            </header>
+
+            <!-- Details Section -->
+            <div class="details-block">
+                <h2 class="section-title">The Details</h2>
+                
+                <div class="detail-row">
+                    <strong>Date</strong> <span>17 December 2026</span>
+                </div>
+                <div class="detail-row">
+                    <strong>Time</strong> <span>13:00 fok off huis toe 00:00</span>
+                </div>
+                <div class="detail-row">
+                    <strong>Location</strong> <span>Landtscap, Stellenbosch</span>
+                </div>
+                <div class="detail-row">
+                    <strong>Attire</strong> <span>Kak fancy</span>
+                </div>
+            </div>
+
+            <!-- RSVP Section -->
+            <div class="rsvp-container">
+                <h2 class="section-title">RSVP</h2>
+                
+                <!-- ⚠️ PASTE YOUR GOOGLE FORM IFRAME CODE DIRECTLY BELOW THIS LINE ⚠️ -->
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHNmDCBdF4n0brLFRBtxbuAj5vk9_trVc_B_z1MiqTYSEcIQ/viewform?embedded=true" width="640" height="1009" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
 
         </div>
     </div>
